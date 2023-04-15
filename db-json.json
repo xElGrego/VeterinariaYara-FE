@@ -1,0 +1,56 @@
+{
+  "login": {
+    "name": "Post 1",
+    "token": "Este es el post 1",
+    "email": "Este es el post 1",
+    "age": 25
+  },
+  "posts": [
+    {
+      "name": "Post 1",
+      "description": "Este es el post 1",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "name": "Post 2asd",
+      "description": "Descripcion del post 2asd"
+    },
+    {
+      "name": "sdf",
+      "description": "sdf",
+      "id": 4
+    }
+  ],
+  "client": {
+    "id": "1",
+    "name": "Gregorio Andres",
+    "lastName": "Avila Macancela",
+    "listaCasos": [
+      {
+        "id": "1",
+        "cedula": "003455",
+        "caso": "perdido"
+      },
+      {
+        "id": "2",
+        "cedula": "23424",
+        "caso": "extraviado"
+      }
+    ],
+    "listaCuentas": [
+      {
+        "id": "1",
+        "cedula": "345335",
+        "expira": "33/12/2200",
+        "final": "final"
+      },
+      {
+        "id": "2",
+        "cedula": "453454",
+        "expira": "22/02/2033",
+        "final": "final"
+      }
+    ]
+  }
+}
