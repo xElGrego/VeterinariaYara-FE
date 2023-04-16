@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+
+.wrapper {
+  height: 180px;
+  width: 350px;
+  border: 1px solid gray;
+  padding: 2rem;
+}
