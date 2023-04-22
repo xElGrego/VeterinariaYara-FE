@@ -1,9 +1,11 @@
 {
   "login": {
-    "name": "Post 1",
-    "token": "Este es el post 1",
-    "email": "Este es el post 1",
-    "age": 25
+    "name": "Gregorio Andrés",
+    "lastName": "Avila Macancela",
+    "password": "gregorito123",
+    "token": "234234234",
+    "age": 25,
+    "email": "gregorioa@hotmail.comm"
   },
   "posts": [
     {
@@ -20,6 +22,111 @@
       "name": "sdf",
       "description": "sdf",
       "id": 4
+    },
+    {
+      "name": "grego",
+      "contrasenia": "gregorioxd",
+      "id": 5
+    },
+    {
+      "name": "asd",
+      "contrasenia": "asd",
+      "id": 6
+    },
+    {
+      "name": "asd",
+      "contrasenia": "asd",
+      "id": 7
+    },
+    {
+      "name": "34534",
+      "contrasenia": "34534",
+      "id": 8
+    },
+    {
+      "name": "234234",
+      "contrasenia": "234",
+      "id": 9
+    },
+    {
+      "name": "234",
+      "contrasenia": "2234",
+      "id": 10
+    },
+    {
+      "name": "asd",
+      "contrasenia": "asd",
+      "id": 11
+    },
+    {
+      "name": "asd",
+      "contrasenia": "asd",
+      "id": 12
+    },
+    {
+      "name": "asd",
+      "contrasenia": "ads",
+      "id": 13
+    },
+    {
+      "name": "345345",
+      "contrasenia": "345",
+      "id": 14
+    },
+    {
+      "name": "asd",
+      "contrasenia": "asd",
+      "id": 15
+    },
+    {
+      "name": "345",
+      "contrasenia": "345",
+      "id": 16
+    },
+    {
+      "name": "asd",
+      "contrasenia": "asd",
+      "id": 17
+    },
+    {
+      "name": "3453",
+      "contrasenia": "45345",
+      "id": 18
+    },
+    {
+      "name": "dads",
+      "contrasenia": "as",
+      "id": 19
+    },
+    {
+      "name": "asd",
+      "contrasenia": "asd",
+      "id": 20
+    },
+    {
+      "name": "234",
+      "contrasenia": "234",
+      "id": 21
+    },
+    {
+      "name": "asd",
+      "contrasenia": "asd",
+      "id": 22
+    },
+    {
+      "name": "asd",
+      "contrasenia": "asd",
+      "id": 23
+    },
+    {
+      "name": "3453",
+      "contrasenia": "4345",
+      "id": 24
+    },
+    {
+      "name": "345",
+      "contrasenia": "45",
+      "id": 25
     }
   ],
   "client": {

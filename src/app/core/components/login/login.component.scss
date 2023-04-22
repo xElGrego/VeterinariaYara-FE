@@ -1,3 +1,5 @@
+@import '../../../../styles.scss';
+
 .container {
   display: flex;
   align-items: center;
@@ -5,10 +7,27 @@
   height: 100vh;
 }
 
+.example-form {
+  display: grid;
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
 
-.wrapper {
-  height: 180px;
-  width: 350px;
-  border: 1px solid gray;
-  padding: 2rem;
+.example-full-width {
+  width: 100%;
+}
+
+.card-actions {
+  gap: 15px;
+}
+
+.example-card {
+  min-width: 450px;
+}
+
+@media (max-width: $layout-breakpoint-sm) {
+  .example-card {
+    min-width: 350px;
+  }
 }

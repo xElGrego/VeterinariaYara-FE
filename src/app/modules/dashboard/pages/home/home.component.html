@@ -1,0 +1,10 @@
+<p>home dhasboard works!</p>
+
+
+<ng-container *ngIf="user$ | async as user">
+
+  <p>Username: {{user.name}} </p>
+  <p>Username: {{user.lastName}} </p>
+  <p>Edad: {{user.age}} </p>
+
+</ng-container>
