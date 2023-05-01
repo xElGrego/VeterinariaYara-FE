@@ -16,3 +16,5 @@ export const selectLoading = createSelector(
 export const user = createSelector(authState, (auth) => auth.user);
 
 export const token = createSelector(authState, (auth) => auth.user?.token);
+
+export const rol = createSelector(authState, (auth) => auth.user?.rol);

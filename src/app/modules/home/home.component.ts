@@ -4,7 +4,9 @@ import { Store } from '@ngrx/store';
 import { Observable, tap } from 'rxjs';
 import { AuthSelectors } from 'src/app/core/components/login/state/index.state';
 import { User } from 'src/app/core/models/auth/user.model';
-import { token } from '../../../../core/components/login/state/auth.selector';
+
+import { NgxSpinnerService } from 'ngx-spinner';
+import { AuthState } from 'src/app/core/components/login/state/auth.state';
 
 @Component({
   selector: 'app-home',
@@ -14,8 +16,14 @@ import { token } from '../../../../core/components/login/state/auth.selector';
 export class HomeComponent {
   user$!: Observable<User | null>;
   token: string = '';
+  name: string = '';
+  lastName: string = '';
 
-  constructor(private store: Store, private router: Router) {}
+  constructor(
+    private store: Store<AuthState>,
+    private router: Router,
+    private SpinnerService: NgxSpinnerService
+  ) {}
 
   ngOnInit(): void {
     this.user$ = this.store.select(AuthSelectors.user);
@@ -23,8 +31,13 @@ export class HomeComponent {
     this.user$.subscribe((user) => {
       if (user) {
         this.token = user.token;
-        console.log('TOkenXD', this.token);
+        this.name = user.name;
+        this.lastName = user.lastName;
       }
     });
+  }
+
+  Navigate(ruta: string) {
+    this.router.navigate([ruta]);
   }
 }

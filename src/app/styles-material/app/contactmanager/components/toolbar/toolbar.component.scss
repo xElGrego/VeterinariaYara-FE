@@ -1,0 +1,15 @@
+/* mat-toolbar {
+  position: fixed;
+} */
+
+.sidenav-toogle {
+  display: none;
+
+  @media (max-width:720px) {
+    display: flex;
+  }
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}

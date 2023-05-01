@@ -11,6 +11,7 @@ import { User } from '../../models/auth/user.model';
 import { Auth } from '../../models/auth/auth.model';
 import { Store } from '@ngrx/store';
 import { AuthAction } from './state/auth.action';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-login',
@@ -24,7 +25,8 @@ export class LoginComponent {
   constructor(
     private authService: AuthService,
     private fb: FormBuilder,
-    private store: Store
+    private store: Store,
+    private spinner: NgxSpinnerService
   ) {
     this.form = this.fb.group({
       user: new FormControl('', [Validators.required]),
@@ -33,11 +35,16 @@ export class LoginComponent {
   }
 
   Login() {
+    this.spinner.show();
+
+    this.store.dispatch(AuthAction.loading({ loading: true }));
+
     if (this.form.invalid) {
       this.form.markAllAsTouched();
       this.Toast.ToastError(
         'Por favor ingresar los datos obligatorios marcados en rojo'
       );
+      this.spinner.hide();
       return;
     }
 
@@ -47,5 +54,9 @@ export class LoginComponent {
     };
 
     this.store.dispatch(AuthAction.login({ auth: user }));
+  }
+
+  Limpiar() {
+    this.form.reset();
   }
 }

@@ -1,0 +1,35 @@
+<div class="mat-elevation-z8">
+
+  <mat-form-field>
+    <mat-label>Filtro</mat-label>
+    <input matInput #search>
+  </mat-form-field>
+
+
+  <table mat-table [dataSource]="dataSource" matSort>
+
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef>No.</th>
+      <th mat-cell *matCellDef="let note"> {{note.id}} </th>
+    </ng-container>
+
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Title</th>
+      <th mat-cell *matCellDef="let note"> {{note.title}} </th>
+    </ng-container>
+
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
+      <th mat-cell *matCellDef="let note"> {{note.id | date:'yyyy-MM-dd' }} </th>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayColumns"> </tr>
+    <tr mat-row *matRowDef="let row;columns:displayColumns"> </tr>
+    <tr class="mat-row" *matNoDataRow=>
+      <td class="mat-cell" colspan="4">No data {{search.value}} </td>
+    </tr>
+  </table>
+
+  <mat-paginator [pageSize]="2" [pageSizeOptions]="[5,10,20]" showFirstLastButtons></mat-paginator>
+
+</div>

@@ -1,0 +1,24 @@
+<mat-drawer-container class="app-sidenav-container" [class.dark-theme]="isDarkTheme" [dir]="mydir">
+  <mat-drawer #drawer class="app-sidenav mat-elevation-z10" [opened]="!isScreenSmall"
+    [mode]="isScreenSmall ? 'over' : 'side'">
+    <mat-toolbar color="primary">
+      Contacts
+    </mat-toolbar>
+
+    <mat-list style="cursor: pointer;">
+      <mat-list-item *ngFor="let user of users">
+        <a matLine (click)="Navegar(user.id)">
+          <mat-icon>home</mat-icon>
+          {{user.name}} </a>
+      </mat-list-item>
+    </mat-list>
+  </mat-drawer>
+
+  <div class="main">
+    <app-toolbar (toogleTheme)="toggleTheme()" (toogleDir)="toogleDir()"
+      (toggleSidenav)="drawer.toggle()"></app-toolbar>
+    <div class="wrapper">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</mat-drawer-container>

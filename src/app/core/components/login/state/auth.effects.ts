@@ -17,6 +17,7 @@ import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { AuthAction } from './auth.action';
 import { User } from 'src/app/core/models/auth/user.model';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Injectable()
 export class AuthEffects {
@@ -25,7 +26,8 @@ export class AuthEffects {
   constructor(
     private actions$: Actions,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private spinner: NgxSpinnerService
   ) {}
 
   loadAll$ = createEffect(() =>
@@ -37,14 +39,13 @@ export class AuthEffects {
             return AuthAction.loginSuccess({ user });
           }),
           tap((xd) => {
-            console.log('Navegandohome');
+            /*  this.spinner.hide(); */
             this.router.navigate(['/']);
           }),
           catchError(() =>
             of(
               AuthAction.loginError({
-                errorMessage:
-                  'Ha ocurrido un error al cargar la informacció del cliete',
+                errorMessage: 'Ha ocurrido un error al iniciar sesión',
               })
             )
           )
@@ -60,6 +61,7 @@ export class AuthEffects {
         /* Aqui llamar al toast */
         tap((action) => {
           console.log(action);
+          this.spinner.hide();
           this.Toast.ToastError(action.errorMessage);
         })
       ),

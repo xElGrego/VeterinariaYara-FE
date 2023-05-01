@@ -1,0 +1,25 @@
+<mat-drawer-container class="app-sidenav-container" [class.dark-theme]="isDarkTheme" [dir]="mydir">
+  <mat-drawer #drawer class="app-sidenav mat-elevation-z10" [opened]="!isScreenSmall"
+    [mode]="isScreenSmall ? 'over' : 'side'">
+    <mat-toolbar color="primary">
+      Veterinaria Yari
+    </mat-toolbar>
+
+    <mat-list>
+      <mat-list-item (click)="Navegar('mascotas')">
+        <a matLine>Mascotas</a>
+      </mat-list-item>
+      <mat-list-item (click)="Navegar('clientes')">
+        <a matLine>Usuarios</a>
+      </mat-list-item>
+    </mat-list>
+  </mat-drawer>
+
+  <div class="main">
+    <app-toolbar (toogleTheme)="toggleTheme()" (toogleDir)="toogleDir()"
+      (toggleSidenav)="drawer.toggle()"></app-toolbar>
+    <div class="wrapper">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</mat-drawer-container>

@@ -7,23 +7,23 @@
     </mat-card-header>
     <mat-card-content>
       <br>
-      <form [formGroup]="form" (keydown.enter)="$event.preventDefault()" (keydown.shift.enter)="$event.preventDefault()"
-        class="example-form">
-        <mat-form-field appearance="outline">
-          <mat-label> Usuario </mat-label>
-          <input formControlName="user" matInput placeholder="Usuario" />
-        </mat-form-field>
-
-        <mat-form-field appearance="outline">
-          <mat-label>Contraseña</mat-label>
-          <input formControlName="contrasenia" matInput placeholder="Contraseña">
-        </mat-form-field>
+      <form [formGroup]="form" (keydown.enter)="$event.preventDefault()"
+        (keydown.shift.enter)="$event.preventDefault()">
+        <div class="my-input">
+          <input formControlName="user" type="text" class="input" required>
+          <label placeholder="Usuario">Usuario</label>
+        </div>
+        <div class="my-input">
+          <input formControlName="contrasenia" type="password" class="input" required>
+          <label>Contraseña</label>
+        </div>
       </form>
     </mat-card-content>
 
     <mat-card-actions class="card-actions" align="end">
       <button mat-raised-button color="primary" (click)="Login()">Ingresar</button>
-      <button mat-raised-button>Limpiar</button>
+      <button mat-raised-button (click)="Limpiar()">Limpiar</button>
     </mat-card-actions>
   </mat-card>
 </div>
+<app-spinner></app-spinner>

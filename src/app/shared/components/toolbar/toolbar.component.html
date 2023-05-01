@@ -1,0 +1,22 @@
+<mat-toolbar class="navbar-color mat-elevation-z8 " style="z-index: 2" color="primary">
+  <button mat-button (click)="toggleSidenav.emit()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span class="spacer"></span>
+  <div>
+    <ng-container *ngIf="user$ | async as user">
+      <span> {{user.name}} {{user.lastName}} </span>
+    </ng-container>
+  </div>
+  <span class="example-spacer"></span>
+
+  <button mat-button [matMenuTriggerFor]="menu">
+    <mat-icon class="example-icon">more_vert</mat-icon>
+
+    <mat-menu #menu="matMenu">
+      <button *appShowRoles="['Admin']" mat-menu-item (click)="toogleTheme.emit()">Cambiar tema</button>
+      <button *appShowRoles="['Admin']" mat-menu-item (click)="toogleDir.emit()">Cambiar dirección del menú</button>
+      <button mat-menu-item>Salir</button>
+    </mat-menu>
+  </button>
+</mat-toolbar>

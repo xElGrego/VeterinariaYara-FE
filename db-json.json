@@ -5,7 +5,8 @@
     "password": "gregorito123",
     "token": "234234234",
     "age": 25,
-    "email": "gregorioa@hotmail.comm"
+    "email": "gregorioa@hotmail.comm",
+    "rol": ["User", "Inventario", "Admin"]
   },
   "posts": [
     {

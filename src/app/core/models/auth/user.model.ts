@@ -1,4 +1,4 @@
-import { Rol } from './rol.model';
+import { Role } from 'src/app/configs/roles';
 
 export interface User {
   name: string;
@@ -6,5 +6,5 @@ export interface User {
   token: string;
   email?: string;
   age?: number;
-  rol: Rol[];
+  rol: Role;
 }
