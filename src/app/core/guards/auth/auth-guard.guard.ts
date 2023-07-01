@@ -11,16 +11,25 @@ import { User } from '../../models/auth/user.model';
 import { AuthSelectors } from '../../components/login/state/index.state';
 import { Store } from '@ngrx/store';
 import { AuthState } from '../../components/login/state/auth.state';
+import { StorageService } from '../../services/storage/storage.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthGuard implements CanActivate {
+export class AuthGuard {
   user$!: Observable<User | null>;
 
-  constructor(private router: Router, private store: Store<AuthState>) {}
+  constructor(private storageService: StorageService, private router: Router) {}
+  canActivate() {
+    console.log('Valor', this.storageService.hasToken());
+    if (this.storageService.hasToken()) {
+      this.router.navigate(['']);
+    }
+    /* this.router.navigate(['login']); */
+    return false;
+  }
 
-  canActivate(
+  /*  canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ):
@@ -31,6 +40,7 @@ export class AuthGuard implements CanActivate {
     return this.store.select(AuthSelectors.user).pipe(
       take(1),
       map((isAuthenticated) => {
+        console.log('Autenticado', isAuthenticated);
         if (isAuthenticated) {
           return true;
         } else {
@@ -39,5 +49,5 @@ export class AuthGuard implements CanActivate {
         }
       })
     );
-  }
+  } */
 }

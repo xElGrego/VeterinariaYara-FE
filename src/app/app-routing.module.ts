@@ -6,12 +6,15 @@ import { DashboardComponent } from './core/components/dashboard/dashboard.compon
 import { HomeComponent } from './modules/home/home.component';
 import { ClientModule } from './modules/client/client.module';
 import { PeetModule } from './modules/peet/peet.module';
+import { formPreventGuard } from './shared/guards/form-prevent.guard';
+import { FormWithSaveGuard } from './shared/guards/form-with-save.guard';
 
 const routes: Routes = [
   {
     path: '',
     canActivate: [AuthGuard],
     component: DashboardComponent,
+
     children: [
       {
         path: '',
@@ -39,8 +42,12 @@ const routes: Routes = [
       ),
   }, */
 
-  { path: 'login', component: LoginComponent },
-  /*  { path: '**', redirectTo: 'login', pathMatch: 'full' }, */
+  {
+    path: 'login',
+    component: LoginComponent,
+    /* canActivate: [AuthGuard], */
+    canDeactivate: [FormWithSaveGuard],
+  },
 ];
 
 @NgModule({

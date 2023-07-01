@@ -5,9 +5,10 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { MaterialModule } from '../material.module';
 import { ShowRolesDirective } from './directives/show-roles.directive';
+import { ModalConfirmComponent } from './components/modals/modal-confirm/modal-confirm.component';
 
 @NgModule({
-  declarations: [SpinnerComponent, ToolbarComponent, ShowRolesDirective],
+  declarations: [SpinnerComponent, ToolbarComponent, ShowRolesDirective, ModalConfirmComponent],
   imports: [CommonModule, NgxSpinnerModule, MaterialModule],
   exports: [SpinnerComponent, ToolbarComponent, ShowRolesDirective],
 })

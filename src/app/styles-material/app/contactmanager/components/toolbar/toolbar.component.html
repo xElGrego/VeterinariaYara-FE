@@ -9,12 +9,10 @@
 
   <button mat-button [matMenuTriggerFor]="menu">
     <mat-icon class="example-icon">more_vert</mat-icon>
-
     <mat-menu #menu="matMenu">
       <button mat-menu-item>Add new contact</button>
       <button mat-menu-item (click)="toogleTheme.emit()">Change theme</button>
       <button mat-menu-item (click)="toogleDir.emit()">Change Dir menu</button>
-
     </mat-menu>
   </button>
 </mat-toolbar>

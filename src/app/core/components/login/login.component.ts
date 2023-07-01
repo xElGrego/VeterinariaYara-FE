@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
 import {
   FormBuilder,
@@ -12,13 +12,15 @@ import { Auth } from '../../models/auth/auth.model';
 import { Store } from '@ngrx/store';
 import { AuthAction } from './state/auth.action';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { HasUnsaveChanges } from 'src/app/shared/guards/form-prevent.guard';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent {
+export class LoginComponent implements HasUnsaveChanges {
   form!: FormGroup;
   Toast = new Toast();
 
@@ -26,12 +28,26 @@ export class LoginComponent {
     private authService: AuthService,
     private fb: FormBuilder,
     private store: Store,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private router: Router
   ) {
     this.form = this.fb.group({
       user: new FormControl('', [Validators.required]),
       contrasenia: new FormControl('', [Validators.required]),
     });
+  }
+
+  @HostListener('window:beforeunload', ['$event'])
+  onBeforeUnload(e: BeforeUnloadEvent) {
+    return this.hasUnsaveChanges() === false;
+  }
+
+  hasUnsaveChanges(): boolean {
+    return this.form.dirty;
+  }
+
+  Navegar() {
+    this.router.navigate(['mascotas']);
   }
 
   Login() {
